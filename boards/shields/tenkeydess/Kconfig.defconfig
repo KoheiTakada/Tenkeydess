@@ -1,0 +1,14 @@
+
+if SHIELD_TENKEYDESS_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "tenkeydess"
+
+endif
+
+if SHIELD_TENKEYDESS_LEFT || SHIELD_TENKEYDESS_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif

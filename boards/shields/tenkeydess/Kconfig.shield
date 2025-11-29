@@ -1,0 +1,4 @@
+config SHIELD_TENKEYDESS_LEFT
+    def_bool $(shields_list_contains,tenkeydess_left)
+config SHIELD_TENKEYDESS_RIGHT
+    def_bool $(shields_list_contains,tenkeydess_right)
