@@ -1,44 +1,44 @@
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
 
 / {
     keymap {
         compatible = "zmk,keymap";
 
-        layer_0 {
-            bindings =<
-                &none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none &none
+        Mac_layer {
+            bindings = <
+&kp Q     &kp W     &kp E                 &kp R    &kp T     &kp ESCAPE           &kp Y      &kp U    &kp I           &kp O                 &kp P
+&kp A     &kp S     &kp D                 &kp F    &kp G     &kp TAB              &kp H      &kp J    &kp K           &kp L                 &kp MINUS
+&kp Z     &kp X     &kp C                 &kp V    &kp B     &none       &none    &kp N      &kp M    &kp COMMA       &kp DOT               &kp FSLH
+&kp LGUI  &kp LALT  &mt LCTRL LANGUAGE_1  &kp DEL  &kp BSPC  &none       &lt 1 A  &kp SPACE  &kp RET  &kp LANGUAGE_2  &kp LC(LS(NUMBER_4))  &kp SEMICOLON
             >;
         };
 
-        layer_1 {
-            bindings =<
-                &none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none &none
+        scroll_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans          &mkp MB4   &mkp MB5   &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
             >;
         };
 
-        layer_2 {
-            bindings =<
-                &none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none &none
+        Number_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans          &kp N7  &kp N8   &kp N9  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &kp N4  &kp N5   &kp N6  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N1  &kp N2   &kp N3  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N0  &kp DOT  &trans  &trans  &trans
             >;
         };
 
         layer_3 {
-            bindings =<
-                &none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none &none
-				&none &none &none &none &none &none &none &none &none &none &none &none
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
