@@ -4,42 +4,191 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
+    macros {
+        bt_sel0: bt_sel0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0 &to 1>;
+            label = "BT_SEL0";
+        };
+
+        bt_sel1: bt_sel1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0 &to 0>;
+            label = "BT_SEL1";
+        };
+
+        bt_sel2: bt_sel2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0 &to 1>;
+            label = "BT_SEL2";
+        };
+
+        bt_sel3: bt_sel3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0 &to 1>;
+            label = "BT_SEL3";
+        };
+
+        bt_sel4: bt_sel4 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0 &to 1>;
+            label = "BT_SEL4";
+        };
+
+        kp_atmark: kp_atmark {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp AT_SIGN>;
+            label = "KP_ATMARK";
+        };
+
+        kp_tilde: kp_tilde {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            label = "KP_TILDE";
+        };
+
+        kp_yen: kp_yen {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            label = "KP_YEN";
+        };
+
+        kp_ampersand: kp_ampersand {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            label = "KP_AMPERSAND";
+        };
+
+        kp_slash: kp_slash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            label = "KP_SLASH";
+        };
+
+        kp_asterisk: kp_asterisk {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            label = "KP_ASTERISK";
+        };
+
+        kp_minus: kp_minus {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            label = "KP_MINUS";
+        };
+
+        kp_plus: kp_plus {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            label = "KP_PLUS";
+        };
+
+        kp_hash: kp_hash {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            label = "KP_HASH";
+        };
+
+        kp_equal: kp_equal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            label = "KP_EQUAL";
+        };
+
+        kp_percent: kp_percent {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            label = "KP_PERCENT";
+        };
+
+        kp_doller: kp_doller {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            label = "KP_DOLLER";
+        };
+
+        kp_caret: kp_caret {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            label = "KP_CARET";
+        };
+
+        kp_pipe: kp_pipe {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            label = "KP_PIPE";
+        };
+
+        kp_zenkakkos: kp_zenkakkos {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_1 &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp ENTER &kp LEFT_ARROW>;
+            label = "KP_ZENKAKKOS";
+        };
+
+        kp_kagikakkos: kp_kagikakkos {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LANGUAGE_1 &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp ENTER &kp LEFT_ARROW>;
+            label = "KP_KAGIKAKKOS";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         MacLayer {
             bindings = <
-&lt 3 Q           &kp W     &kp E                 &kp R    &kp T     &kp ESCAPE                  &kp Y      &kp U    &kp I           &kp O                 &kp P
-&mt LEFT_SHIFT A  &kp S     &kp D                 &kp F    &kp G     &kp TAB                     &kp H      &kp J    &kp K           &kp L                 &kp MINUS
-&lt 2 Z           &kp X     &kp C                 &kp V    &kp B     &none              &none    &kp N      &kp M    &kp COMMA       &kp DOT               &kp FSLH
-&kp LGUI          &kp LALT  &mt LCTRL LANGUAGE_1  &kp DEL  &kp BSPC  &lt 5 EXCLAMATION  &lt 5 A  &kp SPACE  &kp RET  &kp LANGUAGE_2  &kp LC(LS(NUMBER_4))  &kp SEMICOLON
+&lt 3 Q           &kp W     &kp E                 &kp R    &kp T     &kp ESCAPE                         &kp Y      &kp U    &kp I           &kp O                 &kp P
+&mt LEFT_SHIFT A  &kp S     &kp D                 &kp F    &kp G     &kp TAB                            &kp H      &kp J    &kp K           &kp L                 &kp MINUS
+&lt 2 Z           &kp X     &kp C                 &kp V    &kp B     &kp_atmark         &kp_hash        &kp N      &kp M    &kp COMMA       &kp DOT               &kp FSLH
+&kp LGUI          &kp LALT  &mt LCTRL LANGUAGE_1  &kp DEL  &kp BSPC  &lt 5 EXCLAMATION  &lt 4 KP_MINUS  &kp SPACE  &kp RET  &kp LANGUAGE_2  &kp LC(LS(NUMBER_4))  &kp SEMICOLON
             >;
         };
 
         WindowsLayer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans     &trans        &trans        &trans  &trans  &trans          &trans  &trans  &trans  &trans         &trans
+&trans     &trans        &trans        &trans  &trans  &trans          &trans  &trans  &trans  &trans         &trans
+&trans     &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans         &trans
+&kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LG(LS(S))  &trans
             >;
         };
 
         NumberLayer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans          &kp N7  &kp N8   &kp N9  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &kp N4  &kp N5   &kp N6  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N1  &kp N2   &kp N3  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp N0  &kp DOT  &trans  &trans  &trans
+&trans  &trans  &kp_doller  &kp_zenkakkos   &trans     &trans          &kp N7  &kp N8   &kp N9   &kp_plus      &kp_minus
+&trans  &trans  &kp_pipe    &kp_kagikakkos  &trans     &trans          &kp N4  &kp N5   &kp N6   &kp_asterisk  &kp_slash
+&trans  &trans  &kp_caret   &kp_ampersand   &kp_tilde  &trans  &trans  &kp N1  &kp N2   &kp N3   &kp_equal     &trans
+&trans  &trans  &trans      &trans          &trans     &trans  &trans  &kp N0  &kp DOT  &kp_yen  &trans        &trans
             >;
         };
 
         BracketsAndArrows {
             bindings = <
-&trans  &trans  &trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans          &trans          &kp UP_ARROW    &trans           &trans  &trans
-&trans  &trans  &trans  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans          &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans  &trans
-&trans  &trans  &trans  &trans                &trans                 &trans  &trans  &trans          &trans          &trans           &trans  &trans
-&trans  &trans  &trans  &trans                &trans                 &trans  &trans  &trans          &trans          &trans           &trans  &trans
+&trans  &trans  &kp SINGLE_QUOTE   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans          &trans          &kp UP_ARROW    &trans           &trans  &trans
+&trans  &trans  &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans          &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans  &trans
+&trans  &trans  &trans             &trans                &trans                 &trans  &trans  &trans          &trans          &trans           &trans  &trans
+&trans  &trans  &trans             &trans                &trans                 &trans  &trans  &trans          &trans          &trans           &trans  &trans
             >;
         };
 
@@ -54,10 +203,10 @@
 
         BlootoothLayer {
             bindings = <
-&bt BT_SEL 1  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-&trans        &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-&trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&bt_sel0  &bt_sel1  &bt_sel2  &bt_sel3  &bt_sel4  &trans          &trans  &trans  &trans  &trans  &trans
+&trans    &trans    &trans    &trans    &trans    &trans          &trans  &trans  &trans  &trans  &trans
+&trans    &trans    &trans    &trans    &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans    &trans    &trans    &trans    &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
