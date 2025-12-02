@@ -57,84 +57,84 @@
         kp_yen: kp_yen {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            bindings = <&kp LANGUAGE_2 &kp INT_YEN>;
             label = "KP_YEN";
         };
 
         kp_ampersand: kp_ampersand {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            bindings = <&kp LANGUAGE_2 &kp AMPERSAND>;
             label = "KP_AMPERSAND";
         };
 
         kp_slash: kp_slash {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            bindings = <&kp LANGUAGE_2 &kp SLASH>;
             label = "KP_SLASH";
         };
 
         kp_asterisk: kp_asterisk {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            bindings = <&kp LANGUAGE_2 &kp ASTERISK>;
             label = "KP_ASTERISK";
         };
 
         kp_minus: kp_minus {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            bindings = <&kp LANGUAGE_2 &kp MINUS>;
             label = "KP_MINUS";
         };
 
         kp_plus: kp_plus {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            bindings = <&kp LANGUAGE_2 &kp PLUS>;
             label = "KP_PLUS";
         };
 
         kp_hash: kp_hash {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            bindings = <&kp LANGUAGE_2 &kp HASH>;
             label = "KP_HASH";
         };
 
         kp_equal: kp_equal {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            bindings = <&kp LANGUAGE_2 &kp EQUAL>;
             label = "KP_EQUAL";
         };
 
         kp_percent: kp_percent {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            bindings = <&kp LANGUAGE_2 &kp PERCENT>;
             label = "KP_PERCENT";
         };
 
         kp_doller: kp_doller {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            bindings = <&kp LANGUAGE_2 &kp DOLLAR>;
             label = "KP_DOLLER";
         };
 
         kp_caret: kp_caret {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            bindings = <&kp LANGUAGE_2 &kp CARET>;
             label = "KP_CARET";
         };
 
         kp_pipe: kp_pipe {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LANGUAGE_2 &kp TILDE>;
+            bindings = <&kp LANGUAGE_2 &kp PIPE>;
             label = "KP_PIPE";
         };
 
@@ -158,10 +158,10 @@
 
         MacLayer {
             bindings = <
-&lt 3 Q           &kp W     &kp E                 &kp R    &sys_reset  &kp ESCAPE                         &sys_reset  &kp U    &kp I           &kp O                 &kp P
-&mt LEFT_SHIFT A  &kp S     &kp D                 &kp F    &kp G       &kp TAB                            &kp H       &kp J    &kp K           &kp L                 &kp MINUS
-&lt 2 Z           &kp X     &kp C                 &kp V    &kp B       &kp_atmark         &kp_hash        &kp N       &kp M    &kp COMMA       &kp DOT               &kp FSLH
-&kp LGUI          &kp LALT  &mt LCTRL LANGUAGE_1  &kp DEL  &kp BSPC    &lt 5 EXCLAMATION  &lt 4 KP_MINUS  &kp SPACE   &kp RET  &kp LANGUAGE_2  &kp LC(LS(NUMBER_4))  &kp SEMICOLON
+&lt 3 Q           &kp W     &kp E                 &kp R    &kp T     &kp ESCAPE                         &kp Y      &kp U    &kp I           &kp O                 &kp P
+&mt LEFT_SHIFT A  &kp S     &kp D                 &kp F    &kp G     &kp TAB                            &kp H      &kp J    &kp K           &kp L                 &kp MINUS
+&lt 2 Z           &kp X     &kp C                 &kp V    &kp B     &kp_atmark         &kp_hash        &kp N      &kp M    &kp COMMA       &kp DOT               &kp FSLH
+&kp LGUI          &kp LALT  &mt LCTRL LANGUAGE_2  &kp DEL  &kp BSPC  &lt 5 EXCLAMATION  &lt 4 KP_MINUS  &kp SPACE  &kp RET  &kp LANGUAGE_1  &kp LC(LS(NUMBER_4))  &kp SEMICOLON
             >;
         };
 
