@@ -203,10 +203,10 @@
 
         BlootoothLayer {
             bindings = <
-&bt_sel0  &bt_sel1  &bt_sel2  &bt_sel3  &bt_sel4  &trans          &trans  &trans  &trans  &trans  &trans
-&trans    &trans    &trans    &trans    &trans    &trans          &trans  &trans  &trans  &trans  &trans
-&trans    &trans    &trans    &trans    &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans    &trans    &trans    &trans    &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&bt_sel0  &bt_sel1  &bt_sel2  &bt_sel3  &bt_sel4  &bt BT_CLR          &trans  &trans  &trans  &trans  &trans
+&trans    &trans    &trans    &trans    &trans    &trans              &trans  &trans  &trans  &trans  &trans
+&trans    &trans    &trans    &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
+&trans    &trans    &trans    &trans    &trans    &trans      &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
