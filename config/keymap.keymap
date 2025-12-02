@@ -165,10 +165,10 @@
 
         MacLayer {
             bindings = <
-&lt 3 Q           &kp W     &kp E                 &kp R    &kp T     &kp ESCAPE                    &kp Y      &kp U    &kp I           &kp O                 &kp P
-&mt LEFT_SHIFT A  &kp S     &kp D                 &kp F    &kp G     &kp TAB                       &kp H      &kp J    &kp K           &kp L                 &kp MINUS
-&lt 2 Z           &kp X     &kp C                 &kp V    &kp B     &kp_atmark         &kp_hash   &kp N      &kp M    &kp COMMA       &kp DOT               &kp FSLH
-&kp LGUI          &kp LALT  &mt LCTRL LANGUAGE_2  &kp DEL  &kp BSPC  &lt 5 EXCLAMATION  &lt_minus  &kp SPACE  &kp RET  &kp LANGUAGE_1  &kp LC(LS(NUMBER_4))  &kp SEMICOLON
+&lt 3 Q           &kp W     &kp E                 &lt 3 R  &kp T     &kp ESCAPE                    &kp Y      &lt 3 U  &kp I           &kp O                 &lt 3 P
+&lt 2 A           &kp S     &kp D                 &lt 2 F  &kp G     &kp TAB                       &kp H      &lt 2 J  &kp K           &kp L                 &lt 2 MINUS
+&mt LEFT_SHIFT Z  &kp X     &kp C                 &kp V    &kp B     &kp_atmark         &kp_hash   &kp N      &kp M    &kp COMMA       &kp DOT               &mt RIGHT_SHIFT SLASH
+&kp LGUI          &kp LALT  &mt LCTRL LANGUAGE_2  &kp DEL  &kp BSPC  &lt 5 EXCLAMATION  &lt_minus  &kp SPACE  &kp RET  &kp LANGUAGE_1  &kp LS(LG(NUMBER_4))  &kp SEMICOLON
             >;
         };
 
@@ -183,19 +183,19 @@
 
         NumberLayer {
             bindings = <
-&trans  &trans  &kp_doller  &kp_zenkakkos   &trans     &trans          &kp N7  &kp N8   &kp N9   &kp_plus      &kp_minus
-&trans  &trans  &kp_pipe    &kp_kagikakkos  &trans     &trans          &kp N4  &kp N5   &kp N6   &kp_asterisk  &kp_slash
-&trans  &trans  &kp_caret   &kp_ampersand   &kp_tilde  &trans  &trans  &kp N1  &kp N2   &kp N3   &kp_equal     &trans
-&trans  &trans  &trans      &trans          &trans     &trans  &trans  &kp N0  &kp DOT  &kp_yen  &trans        &trans
+&none           &none   &kp_doller  &kp_zenkakkos   &none      &none          &kp N7  &kp N8   &kp N9   &kp_plus      &kp_minus
+&none           &none   &kp_pipe    &kp_kagikakkos  &none      &none          &kp N4  &kp N5   &kp N6   &kp_asterisk  &kp_slash
+&kp LEFT_SHIFT  &none   &kp_caret   &kp_ampersand   &kp_tilde  &none  &trans  &kp N1  &kp N2   &kp N3   &kp_equal     &kp RIGHT_SHIFT
+&trans          &trans  &trans      &trans          &trans     &none  &trans  &kp N0  &kp DOT  &kp_yen  &none         &none
             >;
         };
 
         BracketsAndArrows {
             bindings = <
-&trans  &trans  &kp SINGLE_QUOTE   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans          &trans          &kp UP_ARROW    &trans           &trans  &trans
-&trans  &trans  &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans          &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans  &trans
-&trans  &trans  &trans             &trans                &trans                 &trans  &trans  &trans          &trans          &trans           &trans  &trans
-&trans  &trans  &trans             &trans                &trans                 &trans  &trans  &trans          &trans          &trans           &trans  &trans
+&none   &none   &kp SINGLE_QUOTE   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &none         &none           &kp UP_ARROW    &none            &none  &none
+&none   &none   &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &none         &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none  &none
+&trans  &none   &none              &none                 &none                  &none  &none  &none           &none           &none            &none  &trans
+&trans  &trans  &trans             &none                 &none                  &none  &none  &none           &none           &none            &none  &none
             >;
         };
 
