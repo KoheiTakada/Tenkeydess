@@ -1,79 +1,96 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/zmk/input_transform.h>
 
+/* 1. ピン定義 (ユーザー提示のコード) */
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 12)>,
+                <NRF_PSEL(SPIM_MOSI, 1, 9)>,
+                <NRF_PSEL(SPIM_MISO, 1, 9)>; /* 3-wire SPI setup */
+        };
+    };
+
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 12)>,
+                <NRF_PSEL(SPIM_MOSI, 1, 9)>,
+                <NRF_PSEL(SPIM_MISO, 1, 9)>;
+            low-power-enable;
+        };
+    };
+};
+
 &spi0 {
     status = "okay";
-    cs-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>; // チップセレクト
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
 
-    paw3222: paw3222@0 {
+    trackball: trackball@0 {
+        status = "okay";
         compatible = "pixart,paw3222";
         reg = <0>;
         spi-max-frequency = <2000000>;
-        irq-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // 割り込みピン
+        irq-gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;
         
-        /* センサー自体の基本感度 */
+        /* 基本感度 (必要に応じて変更) */
         cpi = <800>;
     };
 };
 
+/* 2. 入力ロジックの統合 */
 / {
-    /* トラックボールの入力設定 */
+    /* トラックボールのリスナー設定 */
     trackball_listener {
         compatible = "zmk,input-listener";
-        device = <&paw3222>;
+        device = <&trackball>;
 
-        /* プロセッサを順番に通します
-           1. 物理的な向きの補正 (90度回転)
-           2. レイヤーによるスクロールモードへの切り替え
+        /* プロセッサのチェーン順序:
+           1. 90度回転補正
+           2. レイヤーによるスクロール切替 & 反転
         */
         input-processors = <&zip_rotate_90 &zip_scroll_layer>;
     };
 
     input_processors {
-        /* * 【1. 90度回転の設定】
-         * 物理的に90度回転している場合、XYを入れ替えて、片方を反転させます。
-         * 時計回り90度の場合: xy-swap + x-invert
-         * 反時計回り90度の場合: xy-swap + y-invert
-         * 動作が逆の場合は x-invert / y-invert を付け外ししてください。
-         */
+        /* 【90度回転】 XY入替 + X反転 (時計回り90度想定) */
         zip_rotate_90: zip_rotate_90 {
             compatible = "zmk,input-processor-transform";
             xy-swap;
-            x-invert; 
+            x-invert;
         };
 
-        /* * 【2. スクロールレイヤーの設定】
-         * 指定したレイヤーが有効な時だけ、特別な処理(スクロール)を行います。
-         */
+        /* 【スクロールレイヤー】 */
         zip_scroll_layer: zip_scroll_layer {
             compatible = "zmk,input-processor-temp-layer";
             
-            /* スクロールモードにするレイヤー番号 (例: 1) */
+            /* スクロールを有効にするレイヤー番号 (要調整) */
             togg-layers = <4>; 
 
-            /* 通常時は何もしない (上の回転処理をそのまま通す) */
+            /* 通常時: そのまま通す */
             func-default = <&zip_no_op>;
             
-            /* レイヤーON時は、マウス移動をスクロールに変換し、反転させる */
+            /* レイヤーON時: マウス移動をスクロールに変換 + 反転 */
             func-active = <&zip_scroll_convert &zip_scroll_invert>;
         };
 
-        /* 何もしないプロセッサ (通過用) */
+        /* 何もしないプロセッサ */
         zip_no_op: zip_no_op {
             compatible = "zmk,input-processor-transform";
         };
 
-        /* マウス移動(XY)をスクロール(WHEEL)に変換 */
+        /* 移動 -> スクロール変換 */
         zip_scroll_convert: zip_scroll_convert {
             compatible = "zmk,input-processor-transform";
             type = <INPUT_EV_REL>;
-            x-codes = <INPUT_REL_HWHEEL>; // 横移動 -> 横スクロール
-            y-codes = <INPUT_REL_WHEEL>;  // 縦移動 -> 縦スクロール
+            x-codes = <INPUT_REL_HWHEEL>;
+            y-codes = <INPUT_REL_WHEEL>;
         };
 
-        /* * 【3. スクロール反転】
-         * スクロール時のみ方向を反転させます
-         */
+        /* スクロール反転 */
         zip_scroll_invert: zip_scroll_invert {
             compatible = "zmk,input-processor-transform";
             x-invert;
