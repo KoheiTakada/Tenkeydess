@@ -49,7 +49,7 @@
             compatible = "zmk,input-processor-temp-layer";
             
             /* スクロールモードにするレイヤー番号 (例: 1) */
-            togg-layers = <1>; 
+            togg-layers = <4>; 
 
             /* 通常時は何もしない (上の回転処理をそのまま通す) */
             func-default = <&zip_no_op>;
