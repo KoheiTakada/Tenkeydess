@@ -1,12 +1,10 @@
 # Tenkeydess
 テンキーレスではないです。テンキーです。
 
-人差し指トラボ派のための分割オーソリニアです。
-配列の合理性とエルゴノミクスすぎないクリーンなデザインを両立していることが特徴です。
-Choc V2 19mmピッチ、Tadpoleマウントです。
-[Auto-Keyboard-Design-Kit](https://auto-kdk.pages.dev/)で生成されました。
-
-**注意**: 
+- 人差し指トラボ派のための分割オーソリニアです。
+- 配列の合理性とエルゴノミクスすぎないクリーンなデザインを両立していることが特徴です。
+- Choc V2 19mmピッチ、Tadpoleマウントです。
+- [Auto-Keyboard-Design-Kit](https://auto-kdk.pages.dev/)で生成されました。
 
 ## プレビュー
 
