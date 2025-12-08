@@ -18,6 +18,30 @@
 };
 
 / {
+    input_processors {
+        // 垂直スクロールのスケーラー
+
+        zip_wheel_scaler: zip_wheel_scaler {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_WHEEL>;
+            track-remainders;
+        };
+
+        // 水平スクロールのスケーラー
+
+        zip_hwheel_scaler: zip_hwheel_scaler {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_HWHEEL>;
+            track-remainders;
+        };
+    };
+};
+
+/ {
     macros {
         bt_sel0: bt_sel0 {
             compatible = "zmk,behavior-macro";
