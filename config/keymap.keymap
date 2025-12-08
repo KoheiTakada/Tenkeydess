@@ -151,23 +151,9 @@
             bindings = <&kp LANGUAGE_1 &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp ENTER &kp LEFT_ARROW>;
             label = "KP_KAGIKAKKOS";
         };
-
-        lt_minus: lt_minus {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LANGUAGE_2 &lt 4 MINUS>;
-            label = "LT_MINUS";
-        };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        d {
-            bindings = <&kp A>;
-            key-positions = <6 7 17 18 19>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     keymap {
         compatible = "zmk,keymap";
