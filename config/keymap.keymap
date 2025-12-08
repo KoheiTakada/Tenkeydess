@@ -160,6 +160,15 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        d {
+            bindings = <&kp A>;
+            key-positions = <6 7 17 18 19>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
