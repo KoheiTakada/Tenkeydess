@@ -1,9 +1,68 @@
+#include <dt-bindings/zmk/mouse.h>
+#include <input/processors.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
+// マウス移動とスクロールのデフォルト値を設定
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 800
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 120
+
+// マウス移動の設定（加速なし・リニア）
+&mmv {
+    delay-ms = <0>;
+    trigger-period-ms = <10>;
+    time-to-max-speed-ms = <0>;
+    acceleration-exponent = <1>;
+};
+
+// マウススクロールの設定（加速なし・リニア）
+&msc {
+    delay-ms = <0>;
+    trigger-period-ms = <10>;
+    time-to-max-speed-ms = <0>;
+    acceleration-exponent = <0>;
+};
+
 / {
+    // 入力プロセッサーの設定（スクロールの余りを保持）
+    input_processors {
+        zip_wheel_scaler: zip_wheel_scaler {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_WHEEL>;
+            track-remainders;
+        };
+        zip_hwheel_scaler: zip_hwheel_scaler {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_HWHEEL>;
+            track-remainders;
+        };
+    };
+
+    behaviors {
+        // マウスカーソル移動
+        mouse_mv: mouse_cursor_move {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&mmv>, <&mmv>;
+            tap-ms = <10>;
+        };
+
+        // マウススクロール
+        mouse_scrl: mouse_wheel_scrl {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&msc>, <&msc>;
+            tap-ms = <10>;
+        };
+    };
+
     macros {
         bt_sel0: bt_sel0 {
             compatible = "zmk,behavior-macro";
@@ -174,11 +233,12 @@
 
         MacLayer {
             bindings = <
-&lt 3 Q           &kp W     &kp E      &lt 3 R         &kp T     &kp ESCAPE                      &kp Y      &lt 3 U         &kp I                 &kp O                 &lt 3 P
-&lt 2 A           &kp S     &kp D      &lt 2 F         &kp G     &kp TAB                         &kp H      &lt 2 J         &kp K                 &kp L                 &lt 2 MINUS
-&mt LEFT_SHIFT Z  &kp X     &kp C      &kp V           &kp B     &kp_hash           &kp_minus    &kp N      &kp M           &kp COMMA             &kp DOT               &mt RIGHT_SHIFT SLASH
-&kp LGUI          &kp LALT  &kp LCTRL  &kp LANGUAGE_2  &kp BSPC  &lt 6 EXCLAMATION  &lt 5 SPACE  &kp ENTER  &kp LANGUAGE_1  &kp LG(LS(NUMBER_4))  &kp LS(LG(NUMBER_5))  &kp SEMICOLON
+&lt 3 Q           &kp W      &kp E      &lt 3 R       &kp T      &kp ESCAPE                        &kp Y       &lt 3 U       &kp I             &kp O             &lt 3 P
+&lt 2 A           &kp S      &kp D      &lt 2 F       &kp G      &kp TAB                           &kp H       &lt 2 J       &kp K             &kp L             &lt 2 MINUS
+&mt LEFT_SHIFT Z  &kp X      &kp C      &kp V         &kp B      &kp_hash            &kp_minus     &kp N       &kp M         &kp COMMA         &kp DOT           &mt RIGHT_SHIFT SLASH
+&kp LGUI          &kp LALT   &kp LCTRL  &kp LANGUAGE_2 &kp BSPC   &lt 6 EXCLAMATION   &lt 5 SPACE   &kp ENTER   &kp LANGUAGE_1 &kp LG(LS(NUMBER_4)) &kp LS(LG(NUMBER_5)) &kp SEMICOLON
             >;
+            sensor-bindings = <&mouse_mv MOVE_X MOVE_Y>;
         };
 
         WindowsLayer {
@@ -188,23 +248,24 @@
 &trans     &trans        &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans         &trans
 &kp LCTRL  &kp LEFT_ALT  &kp LEFT_GUI  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LG(LS(S))  &trans
             >;
+            sensor-bindings = <&mouse_mv MOVE_X MOVE_Y>;
         };
 
         NumberLayer {
             bindings = <
-&none           &none   &kp_doller  &kp_zenkakkos   &kp_percent  &none          &kp N7  &kp N8   &kp N9   &kp_plus      &kp_minus
-&none           &none   &kp_pipe    &kp_kagikakkos  &kp_atmark   &none          &kp N4  &kp N5   &kp N6   &kp_asterisk  &kp_slash
-&kp LEFT_SHIFT  &none   &kp_caret   &kp_ampersand   &kp_tilde    &none  &trans  &kp N1  &kp N2   &kp N3   &kp_equal     &kp RIGHT_SHIFT
-&trans          &trans  &trans      &trans          &trans       &none  &trans  &kp N0  &kp DOT  &kp_yen  &none         &none
+&none           &none    &kp_doller  &kp_zenkakkos   &kp_percent  &none           &kp N7  &kp N8   &kp N9   &kp_plus      &kp_minus
+&none           &none    &kp_pipe    &kp_kagikakkos  &kp_atmark   &none           &kp N4  &kp N5   &kp N6   &kp_asterisk  &kp_slash
+&kp LEFT_SHIFT  &none    &kp_caret   &kp_ampersand   &kp_tilde    &none   &trans  &kp N1  &kp N2   &kp N3   &kp_equal     &kp RIGHT_SHIFT
+&trans          &trans   &trans      &trans          &trans       &none   &trans  &kp N0  &kp DOT  &kp_yen  &none         &none
             >;
         };
 
         BracketsAndArrows {
             bindings = <
-&none   &none   &kp SINGLE_QUOTE   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &none         &none           &kp UP_ARROW    &none            &none  &none
-&none   &none   &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &none         &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &none  &none
-&trans  &none   &none              &none                 &none                  &none  &none  &none           &none           &none            &none  &trans
-&trans  &trans  &trans             &none                 &none                  &none  &none  &none           &none           &none            &none  &none
+&none   &none   &kp SINGLE_QUOTE   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &none           &none           &kp UP_ARROW    &none             &none  &none
+&none   &none   &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &none           &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW   &none  &none
+&trans  &none   &none              &none                 &none                  &none   &none   &none           &none           &none             &none  &trans
+&trans  &trans  &trans             &none                 &none                  &none   &none   &none           &none           &none             &none  &none
             >;
         };
 
@@ -215,6 +276,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans
             >;
+            sensor-bindings = <&mouse_mv MOVE_X MOVE_Y>;
         };
 
         ScrollLayer {
@@ -224,6 +286,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans
             >;
+            sensor-bindings = <&mouse_scrl SCRL_DOWN SCRL_UP>;
         };
 
         BlootoothLayer {
