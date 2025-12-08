@@ -9,6 +9,14 @@
         zmk,physical-layout = &physical_layout0;
     };
 
+	zip_temp_layer: zip_temp_layer {
+        compatible = "zmk,input-processor-temp-layer";
+        #input-processor-cells = <2>;
+        
+        // デフォルト値（呼び出し側で上書きされるので仮でよい）
+        activation-layer = <4>;
+        timeout-ms = <1000>;
+
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <12>;
