@@ -48,6 +48,7 @@
         device = <&trackball>;
         input-processors = <
 			&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)
+			&zip_temp_layer 4 10000
 			>;
 	    scroller {
 	        layers = <5>;
@@ -99,4 +100,14 @@
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 15 GPIO_ACTIVE_LOW>;
     };
+};
+
+&zip_temp_layer {
+    excluded-positions = <
+        6 // Y
+        7 // U
+        17 // H
+        18 // J
+        19 // K
+    >;
 };
