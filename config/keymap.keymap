@@ -3,6 +3,20 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
+&mmv {
+    trigger-period-ms = <10>;
+    delay-ms = <0>;
+    time-to-max-speed-ms = <0>;
+    acceleration-exponent = <1>;
+};
+
+&msc {
+    trigger-period-ms = <10>;
+    delay-ms = <0>;
+    time-to-max-speed-ms = <0>;
+    acceleration-exponent = <0>;
+};
+
 / {
     macros {
         bt_sel0: bt_sel0 {
@@ -154,6 +168,24 @@
     };
 
     combos { compatible = "zmk,combos"; };
+
+    behaviors {
+        mouse_mv: mouse_cursor_move {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&mmv>, <&mmv>;
+
+            tap-ms = <10>;
+        };
+
+        mouse_scrl: mouse_wheel_scrl {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&msc>, <&msc>;
+
+            tap-ms = <10>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
