@@ -61,15 +61,6 @@
     };
 };
 
-&mkp_input_listener {
-    input-processors = <&zip_temp_layer 4 250>;
-};
-
-
-&zip_temp_layer {
-    require-prior-idle-ms = <200>;
-};
-
 &physical_layout0 {
     kscan = <&kscan0>;
     transform = <&default_transform>;
