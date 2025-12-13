@@ -48,7 +48,7 @@
         device = <&trackball>;
         input-processors = <
 			&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)
-			&zip_temp_layer 4 30000
+			&zip_temp_layer 4 10000
 			>;
 	    scroller {
 	        layers = <5>;
@@ -106,6 +106,8 @@
     excluded-positions = <
         6 // Y
         7 // U
+        17 // H
+        18 // J
+        19 // K
     >;
-};
 };
