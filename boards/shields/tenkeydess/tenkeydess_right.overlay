@@ -107,5 +107,7 @@
     excluded-positions = <
         6 // Y
         7 // U
+        19 // U
     >;
+    require-prior-idle-ms = <200>;
 };
