@@ -17,10 +17,6 @@
     acceleration-exponent = <0>;
 };
 
-&mt { flavor = "balanced"; };
-
-&lt { flavor = "balanced"; };
-
 / {
     input_processors {
         // 垂直スクロールのスケーラー
@@ -270,7 +266,6 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans
             >;
-
             // トラックボールの動きをスクロールに変換
 
             sensor-bindings =
