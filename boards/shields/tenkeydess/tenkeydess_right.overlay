@@ -48,7 +48,7 @@
         device = <&trackball>;
         input-processors = <
 			&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)
-			&zip_y_scaler 5 1
+			&zip_x_scaler 5 1
 			&zip_temp_layer 4 30000
 			>;
 	    scroller {
