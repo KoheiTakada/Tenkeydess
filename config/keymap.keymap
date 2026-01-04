@@ -200,7 +200,12 @@
 
         BluetoothLeyer {
             bindings = <&mo 6>;
-            key-positions = <28 40>;
+            key-positions = <40 28>;
+        };
+
+        VirtualDesktop {
+            bindings = <&mo 7>;
+            key-positions = <40 19>;
         };
     };
 
@@ -263,19 +268,19 @@
 
         MouseMoveLayer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans          &mkp LCLK  &mkp RCLK  &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &mkp MB4   &mkp MB5   &mkp MB3  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &mkp LCLK  &mkp RCLK  &trans    &trans            &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &mkp MB4   &mkp MB5   &mkp MB3  &kp RC(UP_ARROW)  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans            &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans            &trans
             >;
         };
 
         ScrollLayer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans          &mkp LCLK  &mkp RCLK  &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &mkp MB4   &mkp MB5   &mkp MB3  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &mkp LCLK  &mkp RCLK  &trans    &trans            &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &mkp MB4   &mkp MB5   &mkp MB3  &kp RC(UP_ARROW)  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans            &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans            &trans
             >;
 
             // トラックボールの動きをスクロールに変換
@@ -291,6 +296,15 @@
 &trans    &trans    &kp CAPSLOCK  &trans    &trans    &trans              &trans    &trans    &kp CAPSLOCK  &trans    &trans
 &trans    &trans    &trans        &trans    &trans    &trans      &trans  &trans    &trans    &trans        &trans    &trans
 &trans    &trans    &trans        &trans    &trans    &trans      &trans  &trans    &trans    &trans        &trans    &trans
+            >;
+        };
+
+        layer_7 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
