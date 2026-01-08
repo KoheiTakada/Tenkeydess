@@ -106,7 +106,8 @@
     excluded-positions = <
         6 // Y
         7 // U
-        19 // U
+        19 // K
+		40 //親指キー
     >;
     require-prior-idle-ms = <200>;
 };
