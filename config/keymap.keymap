@@ -277,10 +277,10 @@
 
         ScrollLayer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans          &mkp LCLK  &mkp RCLK  &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &mkp MB4   &mkp MB5   &mkp MB3  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &mkp LCLK  &mkp RCLK  &trans    &trans            &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &mkp MB4   &mkp MB5   &mkp MB3  &kp LC(UP_ARROW)  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans            &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans    &trans            &trans
             >;
 
             // トラックボールの動きをスクロールに変換
