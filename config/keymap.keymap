@@ -193,6 +193,27 @@
             bindings = <&kp LANGUAGE_1 &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp ENTER &kp LEFT_ARROW>;
             label = "KP_KAGIKAKKOS";
         };
+
+        kp_1: kp_1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp NUMBER_1 &kp ENTER>;
+            label = "KP_1";
+        };
+
+        kp_2: kp_2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp NUMBER_2 &kp ENTER>;
+            label = "KP_2";
+        };
+
+        kp_3: kp_3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp NUMBER_3 &kp ENTER>;
+            label = "KP_3";
+        };
     };
 
     combos {
@@ -206,21 +227,6 @@
         VirtualDesktop {
             bindings = <&mo 7>;
             key-positions = <40 19>;
-        };
-
-        one {
-            bindings = <&kp NUMBER_1>;
-            key-positions = <41 18>;
-        };
-
-        two {
-            bindings = <&kp NUMBER_2>;
-            key-positions = <41 19>;
-        };
-
-        three {
-            bindings = <&kp NUMBER_3>;
-            key-positions = <41 20>;
         };
     };
 
@@ -285,7 +291,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                    &mkp LCLK  &mkp RCLK  &trans    &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                    &mkp MB4   &mkp MB5   &mkp MB3  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &kp LC(UP_ARROW)  &trans     &trans     &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &kp LC(UP_ARROW)  &kp_1      &trans     &trans    &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans            &trans     &trans     &trans    &trans  &trans
             >;
         };
